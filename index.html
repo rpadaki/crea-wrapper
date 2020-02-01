@@ -5,6 +5,16 @@
     </head>
     <body>
         <input id='searchBox'/>
-        <button onclick="window.location='https://www.crea.in/search.php?startwort=' + document.getElementById('searchBox').value">Search</button>
+        <script>
+            var input = document.getElementById("searchBox")
+            input.addEventListener("keyup", function(event) {
+                if (event.keyCode === 13) {
+                    event.preventDefault();
+                    document.getElementById("searchButton").click();
+                }
+            });
+        </script>
+        <button id='searchButton' onclick="window.location='https://www.crea.in/search.php?startwort=' + document.getElementById('searchBox').value">Search</button>
+
     </body>
 </html>
